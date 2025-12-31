@@ -24,25 +24,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		56552F922F026748006803BE /* Particle_Wave_Simulation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particle_Wave_Simulation.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		56552F9F2F026749006803BE /* Particle_Wave_SimulationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Particle_Wave_SimulationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		56552FA92F026749006803BE /* Particle_Wave_SimulationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Particle_Wave_SimulationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56552F922F026748006803BE /* Particle_Shader_Simulation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particle_Shader_Simulation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56552F9F2F026749006803BE /* Particle_Shader_SimulationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Particle_Shader_SimulationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56552FA92F026749006803BE /* Particle_Shader_SimulationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Particle_Shader_SimulationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		56552F942F026748006803BE /* Particle_Wave_Simulation */ = {
+		56552F942F026748006803BE /* Particle_Shader_Simulation */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Particle_Wave_Simulation;
+			path = Particle_Shader_Simulation;
 			sourceTree = "<group>";
 		};
-		56552FA22F026749006803BE /* Particle_Wave_SimulationTests */ = {
+		56552FA22F026749006803BE /* Particle_Shader_SimulationTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Particle_Wave_SimulationTests;
+			path = Particle_Shader_SimulationTests;
 			sourceTree = "<group>";
 		};
-		56552FAC2F026749006803BE /* Particle_Wave_SimulationUITests */ = {
+		56552FAC2F026749006803BE /* Particle_Shader_SimulationUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Particle_Wave_SimulationUITests;
+			path = Particle_Shader_SimulationUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 		56552F892F026748006803BE = {
 			isa = PBXGroup;
 			children = (
-				56552F942F026748006803BE /* Particle_Wave_Simulation */,
-				56552FA22F026749006803BE /* Particle_Wave_SimulationTests */,
-				56552FAC2F026749006803BE /* Particle_Wave_SimulationUITests */,
+				56552F942F026748006803BE /* Particle_Shader_Simulation */,
+				56552FA22F026749006803BE /* Particle_Shader_SimulationTests */,
+				56552FAC2F026749006803BE /* Particle_Shader_SimulationUITests */,
 				56552F932F026748006803BE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,9 +85,9 @@
 		56552F932F026748006803BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				56552F922F026748006803BE /* Particle_Wave_Simulation.app */,
-				56552F9F2F026749006803BE /* Particle_Wave_SimulationTests.xctest */,
-				56552FA92F026749006803BE /* Particle_Wave_SimulationUITests.xctest */,
+				56552F922F026748006803BE /* Particle_Shader_Simulation.app */,
+				56552F9F2F026749006803BE /* Particle_Shader_SimulationTests.xctest */,
+				56552FA92F026749006803BE /* Particle_Shader_SimulationUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		56552F912F026748006803BE /* Particle_Wave_Simulation */ = {
+		56552F912F026748006803BE /* Particle_Shader_Simulation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 56552FB32F026749006803BE /* Build configuration list for PBXNativeTarget "Particle_Wave_Simulation" */;
+			buildConfigurationList = 56552FB32F026749006803BE /* Build configuration list for PBXNativeTarget "Particle_Shader_Simulation" */;
 			buildPhases = (
 				56552F8E2F026748006803BE /* Sources */,
 				56552F8F2F026748006803BE /* Frameworks */,
@@ -108,18 +108,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				56552F942F026748006803BE /* Particle_Wave_Simulation */,
+				56552F942F026748006803BE /* Particle_Shader_Simulation */,
 			);
-			name = Particle_Wave_Simulation;
+			name = Particle_Shader_Simulation;
 			packageProductDependencies = (
 			);
 			productName = Particle_Wave_Simulation;
-			productReference = 56552F922F026748006803BE /* Particle_Wave_Simulation.app */;
+			productReference = 56552F922F026748006803BE /* Particle_Shader_Simulation.app */;
 			productType = "com.apple.product-type.application";
 		};
-		56552F9E2F026749006803BE /* Particle_Wave_SimulationTests */ = {
+		56552F9E2F026749006803BE /* Particle_Shader_SimulationTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 56552FB62F026749006803BE /* Build configuration list for PBXNativeTarget "Particle_Wave_SimulationTests" */;
+			buildConfigurationList = 56552FB62F026749006803BE /* Build configuration list for PBXNativeTarget "Particle_Shader_SimulationTests" */;
 			buildPhases = (
 				56552F9B2F026749006803BE /* Sources */,
 				56552F9C2F026749006803BE /* Frameworks */,
@@ -131,18 +131,18 @@
 				56552FA12F026749006803BE /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				56552FA22F026749006803BE /* Particle_Wave_SimulationTests */,
+				56552FA22F026749006803BE /* Particle_Shader_SimulationTests */,
 			);
-			name = Particle_Wave_SimulationTests;
+			name = Particle_Shader_SimulationTests;
 			packageProductDependencies = (
 			);
 			productName = Particle_Wave_SimulationTests;
-			productReference = 56552F9F2F026749006803BE /* Particle_Wave_SimulationTests.xctest */;
+			productReference = 56552F9F2F026749006803BE /* Particle_Shader_SimulationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		56552FA82F026749006803BE /* Particle_Wave_SimulationUITests */ = {
+		56552FA82F026749006803BE /* Particle_Shader_SimulationUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 56552FB92F026749006803BE /* Build configuration list for PBXNativeTarget "Particle_Wave_SimulationUITests" */;
+			buildConfigurationList = 56552FB92F026749006803BE /* Build configuration list for PBXNativeTarget "Particle_Shader_SimulationUITests" */;
 			buildPhases = (
 				56552FA52F026749006803BE /* Sources */,
 				56552FA62F026749006803BE /* Frameworks */,
@@ -154,13 +154,13 @@
 				56552FAB2F026749006803BE /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				56552FAC2F026749006803BE /* Particle_Wave_SimulationUITests */,
+				56552FAC2F026749006803BE /* Particle_Shader_SimulationUITests */,
 			);
-			name = Particle_Wave_SimulationUITests;
+			name = Particle_Shader_SimulationUITests;
 			packageProductDependencies = (
 			);
 			productName = Particle_Wave_SimulationUITests;
-			productReference = 56552FA92F026749006803BE /* Particle_Wave_SimulationUITests.xctest */;
+			productReference = 56552FA92F026749006803BE /* Particle_Shader_SimulationUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 56552F8D2F026748006803BE /* Build configuration list for PBXProject "Particle_Wave_Simulation" */;
+			buildConfigurationList = 56552F8D2F026748006803BE /* Build configuration list for PBXProject "Particle_Shader_Simulation" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +200,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				56552F912F026748006803BE /* Particle_Wave_Simulation */,
-				56552F9E2F026749006803BE /* Particle_Wave_SimulationTests */,
-				56552FA82F026749006803BE /* Particle_Wave_SimulationUITests */,
+				56552F912F026748006803BE /* Particle_Shader_Simulation */,
+				56552F9E2F026749006803BE /* Particle_Shader_SimulationTests */,
+				56552FA82F026749006803BE /* Particle_Shader_SimulationUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		56552FA12F026749006803BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 56552F912F026748006803BE /* Particle_Wave_Simulation */;
+			target = 56552F912F026748006803BE /* Particle_Shader_Simulation */;
 			targetProxy = 56552FA02F026749006803BE /* PBXContainerItemProxy */;
 		};
 		56552FAB2F026749006803BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 56552F912F026748006803BE /* Particle_Wave_Simulation */;
+			target = 56552F912F026748006803BE /* Particle_Shader_Simulation */;
 			targetProxy = 56552FAA2F026749006803BE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -467,7 +467,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Particle_Wave_Simulation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Particle_Wave_Simulation";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Particle_Shader_Simulation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Particle_Shader_Simulation";
 			};
 			name = Debug;
 		};
@@ -488,7 +488,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Particle_Wave_Simulation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Particle_Wave_Simulation";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Particle_Shader_Simulation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Particle_Shader_Simulation";
 			};
 			name = Release;
 		};
@@ -533,7 +533,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		56552F8D2F026748006803BE /* Build configuration list for PBXProject "Particle_Wave_Simulation" */ = {
+		56552F8D2F026748006803BE /* Build configuration list for PBXProject "Particle_Shader_Simulation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				56552FB12F026749006803BE /* Debug */,
@@ -542,7 +542,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		56552FB32F026749006803BE /* Build configuration list for PBXNativeTarget "Particle_Wave_Simulation" */ = {
+		56552FB32F026749006803BE /* Build configuration list for PBXNativeTarget "Particle_Shader_Simulation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				56552FB42F026749006803BE /* Debug */,
@@ -551,7 +551,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		56552FB62F026749006803BE /* Build configuration list for PBXNativeTarget "Particle_Wave_SimulationTests" */ = {
+		56552FB62F026749006803BE /* Build configuration list for PBXNativeTarget "Particle_Shader_SimulationTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				56552FB72F026749006803BE /* Debug */,
@@ -560,7 +560,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		56552FB92F026749006803BE /* Build configuration list for PBXNativeTarget "Particle_Wave_SimulationUITests" */ = {
+		56552FB92F026749006803BE /* Build configuration list for PBXNativeTarget "Particle_Shader_SimulationUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				56552FBA2F026749006803BE /* Debug */,

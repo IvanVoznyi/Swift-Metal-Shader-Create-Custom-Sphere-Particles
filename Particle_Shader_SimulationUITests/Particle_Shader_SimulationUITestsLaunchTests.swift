@@ -1,13 +1,13 @@
 //
-//  Particle_Wave_SimulationUITestsLaunchTests.swift
-//  Particle_Wave_SimulationUITests
+//  Particle_Shader_SimulationUITestsLaunchTests.swift
+//  Particle_Shader_SimulationUITests
 //
 //  Created by Ivan Voznyi on 12/29/25.
 //
 
 import XCTest
 
-final class Particle_Wave_SimulationUITestsLaunchTests: XCTestCase {
+final class Particle_Shader_SimulationUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

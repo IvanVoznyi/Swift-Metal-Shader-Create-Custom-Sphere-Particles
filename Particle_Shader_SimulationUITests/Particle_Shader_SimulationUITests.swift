@@ -1,13 +1,13 @@
 //
-//  Particle_Wave_SimulationUITests.swift
-//  Particle_Wave_SimulationUITests
+//  Particle_Shader_SimulationUITests.swift
+//  Particle_Shader_SimulationUITests
 //
 //  Created by Ivan Voznyi on 12/29/25.
 //
 
 import XCTest
 
-final class Particle_Wave_SimulationUITests: XCTestCase {
+final class Particle_Shader_SimulationUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

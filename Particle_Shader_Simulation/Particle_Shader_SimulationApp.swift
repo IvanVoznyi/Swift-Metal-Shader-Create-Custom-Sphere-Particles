@@ -1,6 +1,6 @@
 //
-//  Particle_Wave_SimulationApp.swift
-//  Particle_Wave_Simulation
+//  Particle_Shader_SimulationApp.swift
+//  Particle_Shader_Simulation
 //
 //  Created by Ivan Voznyi on 12/29/25.
 //
