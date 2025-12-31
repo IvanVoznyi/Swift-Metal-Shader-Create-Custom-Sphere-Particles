@@ -40,7 +40,7 @@ This code transforms that coordinate system into NDC (Normalized Device Coordina
     - Center:       (0, 0)
     - Left Edge:    (-1.0)
     - Right Edge:   (+1.0)
-    
+```    
 UV space (0..1)                                     NDC space (-1..+1)
 
 (0,1) ------------------ (1,1)          (-1, 1) ---------------- (1, 1)
@@ -50,7 +50,7 @@ UV space (0..1)                                     NDC space (-1..+1)
   |                        |                |                       |
   |                        |                |                       |
 (0,0) ------------------ (1,0)          (-1, -1) --------------- (1, -1)
-
+```
 2. Why all the numbers? (The Logic)
 
 UV_CENTER_OFFSET (0.5)
@@ -100,7 +100,7 @@ Before Correction (on a 2:1 wide screen):
     - x goes from -1 to 1 over a long distance.
     - y goes from -1 to 1 over a short distance.
     - Result: A circle looks like a wide oval.
-
+```
             Screen Width (2.0)
   <-------------------------------------->
 (-1, 0)            (0,0)              (1, 0)  <-- Distorted!
@@ -108,16 +108,17 @@ Before Correction (on a 2:1 wide screen):
   |                  |                   |
   |       (The circle looks flat)        |
   |__________________|___________________|
-  
+```  
 With Correction (centered.x *= 2.0 / 1.0):
 The x coordinates now go from -2 to 2. 
 This makes the "space" between numbers the same as the vertical space.
-
+```
 (-2, 0)    (-1, 0)     (0,0)      (1, 0)     (2, 0)
    ___________|__________|__________|___________
   |           |          |          |           |
   |           |   (Perfect Circle)  |           |
   |___________|__________|__________|___________|
+```
 -------------------------------------------------------
 UV_CENTER_OFFSET = 0.5: Used to shift coordinates from (0 to 1) to (-0.5 to 0.5). This centers the image so your sphere appears in the middle of the screen rather than the top-right corner.
 
@@ -189,7 +190,7 @@ The 1.5 in focalLength
     - Why: A smaller number (0.5) makes the sphere look huge and curved (wide-angle).
       A larger number (3.0) makes the sphere look small and flat (zoom).
       1.5 is the "natural" look.
-      
+```      
     [cameraPosition]
        (0,0,-2.5)
            |
@@ -203,7 +204,7 @@ The 1.5 in focalLength
            |
         [Sphere]
          (0,0,0)
-
+```
 | VARIABLE | MAIN PURPOSE | REAL WORLD EXAMPLE |
 | :--- | :--- | :--- |
 | **cameraPosition** | Defines where the viewer is | Where you stand in a physical room |
@@ -228,7 +229,7 @@ Visualizing the "Standardized Step" (Normalize)
 
 Imagine the camera is at (0,0,0). The vectors point to a flat screen. 
 The vectors in the corners are longer thanthe vector in the center because they have further to travel to reach the flat plane.
-
+```
        [ FLAT SCREEN ]
     (-1,1)  (0,1)  (1,1)
       \       |       /
@@ -238,11 +239,11 @@ The vectors in the corners are longer thanthe vector in the center because they 
           \   |   /
            \  |  /
             (0,0)  <-- Camera/Eye
-
+```
 The Normalized Vector (Unit Sphere)
 
 When you call normalize(), you "pull" or "push" all those vectors so they land exactly on the surface of a circle (or sphere) with a radius of 1.
-
+```
           [ UNIT CIRCLE ]
               (0,1)
           .  -  |  -  .
@@ -253,7 +254,7 @@ When you call normalize(), you "pull" or "push" all those vectors so they land e
        \        |        /
           '  -  |  -  '
               (0,0) <-- Camera
-
+```
 Why this matters for Ray Tracing
 
 If you don't normalize, your "steps" into the scene are uneven. 
@@ -273,7 +274,7 @@ They fan out from your eye.
     - Pixels at the edge of the screen need to look "sideways" at an angle.
     - Pixels in the center need to look straight ahead. 
       This line calculates that specific angle for every single pixel.
-      
+```      
       [ Eye / ro ]
             *
            /|\
@@ -287,21 +288,17 @@ They fan out from your eye.
             |
             V
         [ SPHERE ]
-        
+```        
 3. Examples of how it changes the look
 
 The focalLength acts like a camera lens. 
 If you change that number, the "angle" of the rays changes.
 
-+----------------+----------------------+-------------------------------------------------------+
-| FOCAL LENGTH   |        EFFECT        |                        RESULT                         |
-+----------------+----------------------+-------------------------------------------------------+
-|  0.5 (Low)     | Wide Angle / Fisheye | Rays fan out wide. Sphere looks huge and distorted.   |
-+----------------+----------------------+-------------------------------------------------------+
-| 1.5 (Standard) | Natural View         | Rays fan out like a human eye. Sphere looks natural.  |
-+----------------+----------------------+-------------------------------------------------------+
-|  5.0 (High)    | Telephoto / Zoom     | Rays are almost parallel. Sphere looks flat/far away. |
-+----------------+----------------------+-------------------------------------------------------+
+| FOCAL LENGTH | EFFECT | RESULT |
+| :--- | :--- | :--- |
+| **0.5** (Low) | **Wide Angle / Fisheye** | Rays fan out wide. Sphere looks huge and distorted. |
+| **1.5** (Standard) | **Natural View** | Rays fan out like a human eye. Sphere looks natural. |
+| **5.0** (High) | **Telephoto / Zoom** | Rays are almost parallel. Sphere looks flat/far away. |
 -------------------------------------------------------
     float midpointDistance = dot(cameraPosition, rayDirection);
 
@@ -327,7 +324,7 @@ We need to find the point on that stick that is closest to the sphere's center.
  3. Visualizing
  
  Think of the rayDirection as a laser beam and the cameraPosition as your starting point.
- 
+``` 
                       ( Sphere Surface )
                           .  -  -  .
                       .      / | \      .
@@ -348,20 +345,15 @@ We need to find the point on that stick that is closest to the sphere's center.
                                |
           |<------- "b" ------>|
             (midpointDistance)
-      
+```      
 What is 'X'? 'X' is the "Midpoint." It is the spot on the laser beam that is exactly "next to" the heart of the sphere.
 
-+------------------+------------------------------+------------------------------------------+
-|      TERM        |        MAIN PURPOSE          |           REAL WORLD METAPHOR            |
-+------------------+------------------------------+------------------------------------------+
-|      @           | The Sphere's Heart           | The center of a marble.                  |
-+------------------+------------------------------+------------------------------------------+
-|   Sphere Edge    | The "Wall" of the object     | The glass surface of the marble.         |
-+------------------+------------------------------+------------------------------------------+
-|      X           | The "Closest Pass"           | The point on a path closest to a tree.   |
-+------------------+------------------------------+------------------------------------------+
-| midpointDistance | The depth of the "Pass"      | How far you walked to get next to the tree. |
-+------------------+------------------------------+------------------------------------------+
+| TERM | MAIN PURPOSE | REAL WORLD METAPHOR |
+| :--- | :--- | :--- |
+| **Origin (0,0,0)** | The Sphere's Heart | The center of a marble. |
+| **Sphere Edge** | The "Wall" of the object | The glass surface of the marble. |
+| **Closest Point** | The "Closest Pass" | The point on a path closest to a tree. |
+| **midpointDistance** | The depth of the "Pass" | How far you walked to get next to the tree. |
 -------------------------------------------------------
     float originOffset = dot(cameraPosition, cameraPosition) - (radius * radius);
     
@@ -382,15 +374,10 @@ It compares the distance you traveled toward the center (midpointDistance) again
     - If insideSphereSquared < 0: The ray missed the sphere and is heading into empty space.
     - If insideSphereSquared == 0: The ray perfectly "grazes" the very edge of the sphere.
     
-+-------------------+-------------------------------+-------------------------------------------+
-|       NAME        |         MAIN PURPOSE          |            REAL WORLD METAPHOR            |
-+-------------------+-------------------------------+-------------------------------------------+
-|insideSphereSquared| Determines IF there is a hit  | Like a metal detector beeping when it     |
-|       (h)         | and HOW THICK the hit is.     | finds something under the surface.        |
-+-------------------+-------------------------------+-------------------------------------------+
-|    b * b - c      | The Pythagorean subtraction.  | Checking if your "jump" was long enough   |
-|                   |                               | to reach the other side of a pit.         |
-+-------------------+-------------------------------+-------------------------------------------+
+| NAME | MAIN PURPOSE | REAL WORLD METAPHOR |
+| :--- | :--- | :--- |
+| **insideSphereSquared (h)** | Determines IF there is a hit and HOW THICK the hit is. | Like a metal detector beeping when it finds something under the surface. |
+| **b * b - c** | The Pythagorean subtraction. | Checking if your "jump" was long enough to reach the other side of a pit. |
 -------------------------------------------------------
     if (insideSphereSquared > 0.0) {
 
@@ -403,18 +390,11 @@ It checks the Discriminant (insideSphereSquared).
     - If the value is greater than 0, it means the math found a real intersection point.
     - If the value is less than 0, the math involves imaginary numbers (square roots of negatives), which in the real world means the ray missed the sphere entirely.
     
-+-----------------+-------------------------------+-----------------------------------------+
-| RESULT OF CHECK |        LOGICAL MEANING        |               GPU ACTION                |
-+-----------------+-------------------------------+-----------------------------------------+
-|     > 0.0       | HIT! The ray is inside the    | Run lighting, shading, and coloring     |
-|                 | sphere's volume.              | code for this pixel.                    |
-+-----------------+-------------------------------+-----------------------------------------+
-|     == 0.0      | GRAZE! The ray is perfectly   | Draw the very edge (silhouette) of the  |
-|                 | touching the outer edge.      | sphere.                                 |
-+-----------------+-------------------------------+-----------------------------------------+
-|     < 0.0       | MISS! The ray passes by the   | Skip all sphere math; show the          |
-|                 | sphere into the distance.     | background/sky instead.                 |
-+-----------------+-------------------------------+-----------------------------------------+
+| RESULT OF CHECK | LOGICAL MEANING | GPU ACTION |
+| :--- | :--- | :--- |
+| **> 0.0** | **HIT!** The ray is inside the sphere's volume. | Run lighting, shading, and coloring code for this pixel. |
+| **== 0.0** | **GRAZE!** The ray is perfectly touching the outer edge. | Draw the very edge (silhouette) of the sphere. |
+| **< 0.0** | **MISS!** The ray passes by the sphere into the distance. | Skip all sphere math; show the background/sky instead. |
 
       ( MISS )  < 0.0
           |
@@ -436,7 +416,7 @@ It checks the Discriminant (insideSphereSquared).
 Efficiency and Correctness. Lighting math (calculating shadows, reflections, and colors) is "expensive" for a computer.
 This if statement ensures the computer only spends its energy on the pixels that actually matter.
 It’s like a "security guard" at the door of the sphere.
-
+```
 PIXEL GRID                 insideSphereSquared            FINAL RESULT
                                      CHECK
     . . . . . . .              . . . - - . . .             . . . . . . .
@@ -447,7 +427,7 @@ PIXEL GRID                 insideSphereSquared            FINAL RESULT
 
                                (+) = Greater than 0
                                (-) = Less than 0
-
+```
 -------------------------------------------------------
         float distanceToFrontSurface = -midpointDistance - sqrt(insideSphereSquared);
 
@@ -514,18 +494,11 @@ The Fresnel effect is what gives a 2D circle the "look" of a 3D bubble or a poli
 
       [ VIEW DIRECTION ] ------>
       
-+-------------------+-------------------------------+-----------------------------------------+
-| COMPREHENSIVE NAME|         MAIN PURPOSE          |           REAL WORLD METAPHOR           |
-+-------------------+-------------------------------+-----------------------------------------+
-|     edgeGlow      | Makes the edges of the sphere | Looking at a soap bubble or a glass     |
-|     (fresnel)     | brighter than the middle.     | marble; the edges look "thicker."       |
-+-------------------+-------------------------------+-----------------------------------------+
-|     pow (4.0)     | Controls the "Falloff."       | Focusing a flashlight beam into a tight |
-|                   |                               | circle vs. a wide glow.                 |
-+-------------------+-------------------------------+-----------------------------------------+
-|   surfaceNormal   | The direction the skin faces. | An arrow pointing straight out from the |
-|                   |                               | surface at any point.                   |
-+-------------------+-------------------------------+-----------------------------------------+ 
+| COMPREHENSIVE NAME | MAIN PURPOSE | REAL WORLD METAPHOR |
+| :--- | :--- | :--- |
+| **edgeGlow** (Fresnel) | Makes the edges of the sphere brighter than the middle. | Looking at a soap bubble or a glass marble; the edges look "thicker." |
+| **pow(fresnel, 4.0)** | Controls the "Falloff" (Sharpness). | Focusing a flashlight beam into a tight circle vs. a wide glow. |
+| **surfaceNormal** | The direction the "skin" faces. | An arrow pointing straight out from the surface at any point. |
 -------------------------------------------------------
         half3 bodyTint = half3(0.02, 0.05, 0.15) * 0.15;
 
@@ -601,47 +574,48 @@ The code multiplies the numbers and adds 33.33.
 This is like taking your coordinates and throwing them into a lottery machine.
 
 Before Scramble: (Nice, organized coordinates)
-
+```
 [ 1.0 ]  [ 2.0 ]  [ 3.0 ]
-
+```
 After Scramble (The "Mix"): The numbers get stretched, added, and flipped.
 The dot product creates a "cross-talk" where X knows about Y, and Y knows about Z.
-
+```
    \  /      \  /      \  /
     \/        \/        \/    <-- Mixing logic
    /  \      /  \      /  \
 [ 42.103 ] [ 9.554 ] [ 88.21 ]
-
+```
 3. The Flattening (To 1D)
 
 We take those three messy numbers and crush them together into one single value.
-
+```
  (  X   +   Y ) *    Z
  [42.1] + [9.5] * [88.2]
           |
           v
    [ 4550.6234... ]  <-- One giant messy number
-   
+```   
 4. The Final "Fract" (The Result)
 
 The fract function is like a guillotine.
 It chops off everything except the decimals.
 This ensures our answer is always between 0 and 1.
-
+```
     KEEP ONLY THE END
           vvvvvv
   4550 . 6234891...
           |
           v
        [ 0.6234 ]    <-- Your Final "Random" Hash!
-
+```
 What does the output look like?
 
 If you ran this code for every pixel on your screen, it wouldn't look like a smooth photo. It would look like TV Static (Noise):
-
+```
 . : * . # : . * : . # .
 * . # : . * : . # : . *
 : . * : . # . : * . # :
+```
 -------------------------------------------------------
 float drawCircle(float3 surfacePos, float density, float baseSize, float time, float isAnimated) {
 
