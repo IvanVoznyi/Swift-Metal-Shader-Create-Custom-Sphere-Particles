@@ -204,15 +204,11 @@ The 1.5 in focalLength
         [Sphere]
          (0,0,0)
 
-+----------------+-------------------------------+-------------------------------------------+
-|    VARIABLE    |         MAIN PURPOSE          |            REAL WORLD EXAMPLE             |
-+----------------+-------------------------------+-------------------------------------------+
-| cameraPosition | Defines where the viewer is   | Where you stand in a physical room        |
-+----------------+-------------------------------+-------------------------------------------+
-| focalLength    | Defines the "Zoom" level      | The specific lens you put on a camera     |
-+----------------+-------------------------------+-------------------------------------------+
-|       rd       | Defines the "Line of Sight"   | The path from your eye through the window |
-+----------------+-------------------------------+-------------------------------------------+
+| VARIABLE | MAIN PURPOSE | REAL WORLD EXAMPLE |
+| :--- | :--- | :--- |
+| **cameraPosition** | Defines where the viewer is | Where you stand in a physical room |
+| **focalLength** | Defines the "Zoom" level | The specific lens you put on a camera |
+| **rd** (Ray Direction) | Defines the "Line of Sight" | The path from your eye through the window |
 -------------------------------------------------------
     float3 rayDirection = normalize(float3(DEFAULT_CENTERED, focalLength));
     
